@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: f5fd8e7d1b2ff2f4fbc2f24045cff6b4
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - bomb: {instanceID: 0}
+  - audio: {instanceID: 0}
+  - module: {instanceID: 0}
+  - debug: {instanceID: 0}
+  - solvedBulb: {fileID: 2100000, guid: 7c0f328cd00dc48c6b27ca9fcd223941, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
