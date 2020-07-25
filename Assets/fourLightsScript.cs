@@ -132,6 +132,7 @@ public class fourLightsScript : MonoBehaviour {
 			binaryAArray[bulbPlace] = unlitOrLit;
 			binaryBArray[Int16.Parse(labelsLabels[bulbPlace])-1] =unlitOrLit;
 		}
+		Debug.LogFormat("[Four Lights #{0}] Labels are in this order : {1}", moduleId, labelsLabels.Join(","));
 		Debug.LogFormat("[Four Lights #{0}] In base 10 : A={1} B={2}", moduleId, baseTenA, baseTenB);
 		Debug.LogFormat("[Four Lights #{0}] In base 2 : A={1} B={2}", moduleId, binaryAArray.Join(""), binaryBArray.Join(""));
 		GenerateSolution();
@@ -160,6 +161,7 @@ public class fourLightsScript : MonoBehaviour {
 				{
 					Debug.LogFormat("[Four Lights #{0}] Module solved!.", moduleId);
 					moduleSolved = true;
+					audio.PlayGameSoundAtTransform(KMSoundOverride.SoundEffect.CorrectChime, label.transform);
 					module.HandlePass();
 					Victory();
 				}
