@@ -14,8 +14,17 @@ MonoBehaviour:
   id: fourLights
   title: Four Lights
   author: Konoko
-  description: 
-  version: 
+  description: 'Four Lights v1.0
+
+    "Binary turns them on..."
+
+
+    Idea and implementation by Konoko.
+
+
+    My very first module, so ping/DM Konoko#9440 on the KTaNE server if you find a
+    bug.'
+  version: 1.0
   outputFolder: C:\Program Files (x86)\Steam\steamapps\common\Keep Talking and Nobody
     Explodes\mods
-  previewImage: {fileID: 0}
+  previewImage: {fileID: 2800000, guid: 448f1a21cb034d5418d44061634b7acc, type: 3}
