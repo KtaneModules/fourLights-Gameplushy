@@ -2571,7 +2571,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bomb: {fileID: 114982143726001872}
-  audio: {fileID: 114772173018565260}
+  sfx: {fileID: 114772173018565260}
   module: {fileID: 114096566509612578}
   labels:
   - {fileID: 114150258025294730}

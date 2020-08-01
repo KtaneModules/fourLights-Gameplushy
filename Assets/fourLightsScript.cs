@@ -1,15 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using KModkit;
 using System;
+using System.Text.RegularExpressions;
 using Random = UnityEngine.Random;
 
 public class fourLightsScript : MonoBehaviour {
 
 	public KMBombInfo bomb;
-	public KMAudio audio;
+	public KMAudio sfx;
 	public KMBombModule module;
 
 	public KMSelectable[] labels;
@@ -143,7 +143,7 @@ public class fourLightsScript : MonoBehaviour {
 		if (!moduleSolved)
 		{
 			label.AddInteractionPunch(.5f);
-			audio.PlayGameSoundAtTransform(KMSoundOverride.SoundEffect.ButtonPress,label.transform);
+			sfx.PlayGameSoundAtTransform(KMSoundOverride.SoundEffect.ButtonPress,label.transform);
 			int placement = Array.IndexOf(labels, label);
 			if (labelsLabels[placement] == solution[stagetime])
 			{
@@ -161,7 +161,7 @@ public class fourLightsScript : MonoBehaviour {
 				{
 					Debug.LogFormat("[Four Lights #{0}] Module solved!.", moduleId);
 					moduleSolved = true;
-					audio.PlayGameSoundAtTransform(KMSoundOverride.SoundEffect.CorrectChime, label.transform);
+					sfx.PlayGameSoundAtTransform(KMSoundOverride.SoundEffect.CorrectChime, label.transform);
 					module.HandlePass();
 					Victory();
 				}
@@ -192,5 +192,41 @@ public class fourLightsScript : MonoBehaviour {
 			lblTxt.text = labelsLabels[Array.IndexOf(labelTexts, lblTxt)];
 		foreach (MeshRenderer bulb in bulbsMat)
 			bulb.material = litUnlit[binaryAArray[Array.IndexOf(bulbsMat, bulb)]];
+	}
+
+#pragma warning disable 414
+	private readonly string TwitchHelpMessage = @"!{0} position 2 3, !{0} pos 2 3, !{0} p 2 3 [2nd then 3rd position] | !{0} label 1 4, !{0} lab 1 4, !{0} l 1 4 [label 1 then 4] |";
+#pragma warning restore 414
+
+	KMSelectable[] ProcessTwitchCommand (string command)
+	{
+		var m = Regex.Match(command, @"^\s*(?:position|pos|p)\s+(([1-4] ?){1,4})\s*$");
+		command = command.ToLowerInvariant();
+		if (m.Success)
+		{
+			List<KMSelectable> ans = new List<KMSelectable>();
+			foreach (char tap in m.Groups[1].Value)
+			{
+				if (tap != ' ')
+					ans.Add(labels[(int)char.GetNumericValue(tap) - 1]);
+			}
+
+			return ans.ToArray();
+		}
+		m = Regex.Match(command, @"^\s*(?:label|lab|l)\s+(([1-4] ?){1,4})\s*$");
+		if (m.Success)
+		{
+			List<KMSelectable> ans = new List<KMSelectable>();
+			foreach (var tap in m.Groups[1].Value)
+			{
+				Debug.LogFormat(char.GetNumericValue(tap).ToString());
+				Debug.LogFormat(Array.IndexOf(labelsLabels, char.GetNumericValue(tap).ToString()).ToString());
+				if(tap!=' ')
+					ans.Add(labels[Array.IndexOf(labelsLabels, char.GetNumericValue(tap).ToString())]);
+			}
+				
+			return ans.ToArray();
+		}
+		return null;
 	}
 }
