@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using UnityEngine;
 using KModkit;
@@ -228,5 +229,14 @@ public class fourLightsScript : MonoBehaviour {
 			return ans.ToArray();
 		}
 		return null;
+	}
+
+	IEnumerator TwitchHandleForcedSolve()
+	{
+		foreach(string step in solution)
+		{
+			labels[Array.IndexOf(labelsLabels, step)].OnInteract();
+			yield return new WaitForSeconds(.1f);
+		}
 	}
 }
