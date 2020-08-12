@@ -18,6 +18,7 @@ public class fourLightsScript : MonoBehaviour {
 	public MeshRenderer[] bulbsMat;
 	public TextMesh[] labelTexts;
 	public Material solvedBulb;
+	public KMGameCommands service;
 
 	string[] labelsLabels = new string[4] {"1","2","3","4"}; //Labels from left to right
 	int baseTenA;
@@ -171,7 +172,7 @@ public class fourLightsScript : MonoBehaviour {
 			{
 				Debug.LogFormat("[Four Lights #{0}] You pressed label {1} when you were supposed to press {2}. Strike and reset!", moduleId, labelsLabels[placement],solution[stagetime]);
 				InCaseOfStrike();
-				module.HandleStrike();
+				service.CauseStrike("Can't binary properly");
 			}		
 		}
 

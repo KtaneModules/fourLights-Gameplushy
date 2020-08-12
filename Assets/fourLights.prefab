@@ -554,6 +554,7 @@ GameObject:
   - component: {fileID: 114096566509612578}
   - component: {fileID: 114199491295988010}
   - component: {fileID: 114926997217262356}
+  - component: {fileID: 114187128713575104}
   m_Layer: 0
   m_Name: fourLights
   m_TagString: Untagged
@@ -2210,6 +2211,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShaderNames:
   - KT/Mobile/DiffuseTint
+--- !u!114 &114187128713575104
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1817481149631308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 759786898, guid: 45b809be76fd7a3468b6f517bced6f28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114199491295988010
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2592,6 +2604,7 @@ MonoBehaviour:
   - {fileID: 102715317604355790}
   - {fileID: 102509514212392826}
   solvedBulb: {fileID: 2100000, guid: 7c0f328cd00dc48c6b27ca9fcd223941, type: 2}
+  service: {fileID: 114187128713575104}
 --- !u!114 &114941038611337482
 MonoBehaviour:
   m_ObjectHideFlags: 1
