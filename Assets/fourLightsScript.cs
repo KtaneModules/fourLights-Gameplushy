@@ -80,8 +80,8 @@ public class fourLightsScript : MonoBehaviour {
 
 			solution.AddRange(new string[] { labelsLabels[Array.IndexOf(binaryAArray, 1)], (Array.IndexOf(binaryBArray,1)+1).ToString()});
 		}
-		else if (baseTenA>10 && baseTenB > 10) { 
-			Debug.LogFormat("[Four Lights #{0}] Using rule 6 : Apply a AND logic gate and press position for 1s.", moduleId);
+		else if (baseTenA>=10 && baseTenB >= 10) { 
+			Debug.LogFormat("[Four Lights #{0}] Using rule 6 : Apply an AND logic gate and press position for 1s.", moduleId);
 
 			for (int i = 0; i <= 3; i++)
 				if (binaryAArray[i] == 1 && binaryBArray[i] == 1) solution.Add(labelsLabels[i]);	
@@ -172,7 +172,7 @@ public class fourLightsScript : MonoBehaviour {
 			{
 				Debug.LogFormat("[Four Lights #{0}] You pressed label {1} when you were supposed to press {2}. Strike and reset!", moduleId, labelsLabels[placement],solution[stagetime]);
 				InCaseOfStrike();
-				service.CauseStrike("Can't binary properly");
+				//service.CauseStrike("Can't binary properly");
 			}		
 		}
 
