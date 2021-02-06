@@ -172,6 +172,7 @@ public class fourLightsScript : MonoBehaviour {
 			{
 				Debug.LogFormat("[Four Lights #{0}] You pressed label {1} when you were supposed to press {2}. Strike and reset!", moduleId, labelsLabels[placement],solution[stagetime]);
 				InCaseOfStrike();
+				module.HandleStrike();
 				//service.CauseStrike("Can't binary properly");
 			}		
 		}
