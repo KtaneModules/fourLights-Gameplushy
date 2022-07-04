@@ -14,16 +14,12 @@ MonoBehaviour:
   id: fourLights
   title: Four Lights
   author: Konoko
-  description: 'Four Lights v1.5
+  description: 'Four Lights v1.5.1
 
     "Binary turns them on..."
 
 
-    Idea and implementation by Konoko.
-
-
-    My very first module, so ping/DM Konoko#9440 on the KTaNE server if you find a
-    bug.'
-  version: 1.5
+    Idea and implementation by Konoko.'
+  version: 1.5.1
   outputFolder: build
   previewImage: {fileID: 2800000, guid: 448f1a21cb034d5418d44061634b7acc, type: 3}
